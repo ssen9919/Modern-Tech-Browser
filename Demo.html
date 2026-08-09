@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS Modern Tech Browser</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="theme-cyan">
+
+  <!-- Matrix Canvas Background -->
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- Top Navigation Controls & Browser Title -->
+  <div class="floating-controls">
+    <button class="float-btn" onclick="goHome()" title="Core Dashboard"><i class="fa-solid fa-atom"></i></button>
+    <button class="float-btn" onclick="reloadPage()" title="Refresh Page"><i class="fa-solid fa-arrows-rotate"></i></button>
+    
+    <!-- Theme Switchers -->
+    <div class="theme-picker">
+      <span class="theme-dot cyan" onclick="setTheme('cyan')" title="Cyan Theme"></span>
+      <span class="theme-dot purple" onclick="setTheme('purple')" title="Purple Theme"></span>
+      <span class="theme-dot green" onclick="setTheme('green')" title="Matrix Theme"></span>
+    </div>
+  </div>
+
+  <!-- Sci-Fi Clock Display -->
+  <div class="hud-clock">
+    <div id="clock-time">00:00:00</div>
+    <div id="clock-date">SYS_READY // NEXUS_v2.6</div>
+  </div>
+
+  <!-- SCREEN 1: Core Cyber Dashboard -->
+  <section id="new-tab-screen">
+    <div class="hud-container">
+      
+      <!-- Rotating Core Logo & Modern Browser Name -->
+      <div class="brand-header">
+        <div class="logo-orb">
+          <span class="brand-hud">N</span>
+        </div>
+        <h1 class="browser-title">NEXUS <span class="badge">TECH BROWSER</span></h1>
+        <div class="browser-status">
+          <span class="status-dot"></span> SECURE QUANTUM ENGINE
+        </div>
+      </div>
+
+      <!-- Engine Selectors -->
+      <div class="engine-selector">
+        <button id="btn-google" class="engine-btn active" onclick="setEngine('google')"><i class="fa-brands fa-google"></i> Google</button>
+        <button id="btn-bing" class="engine-btn" onclick="setEngine('bing')"><i class="fa-brands fa-bing"></i> Bing</button>
+        <button id="btn-duck" class="engine-btn" onclick="setEngine('duckduckgo')"><i class="fa-solid fa-shield-cat"></i> DuckDuckGo</button>
+      </div>
+
+      <!-- Capsule Search Input with Voice Search -->
+      <div class="hud-search-bar">
+        <i class="fa-solid fa-terminal hud-icon"></i>
+        <input type="text" id="full-address-bar" placeholder="Enter query, URL, or commands (/yt, /ai)..." onkeydown="handleEnter(event)">
+        <button class="mic-btn" onclick="startVoiceSearch()" title="Voice Search"><i class="fa-solid fa-microphone"></i></button>
+        <button class="hud-go-btn" onclick="navigateToUrl()"><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+
+      <!-- Command Quick Hints -->
+      <div class="cmd-hints">
+        <span><b>Commands:</b> <code>/yt</code> YouTube | <code>/ai</code> ChatGPT | <code>/map</code> Maps</span>
+      </div>
+
+      <!-- Orbital Node Shortcuts -->
+      <div class="orbital-shortcuts">
+        <a href="#" onclick="quickLoad('https://wikipedia.org')" class="orbit-node" title="Wikipedia"><i class="fa-brands fa-wikipedia-w"></i></a>
+        <a href="#" onclick="quickLoad('https://archive.org')" class="orbit-node" title="Archive"><i class="fa-solid fa-vault"></i></a>
+        <a href="#" onclick="quickLoad('https://codepen.io')" class="orbit-node" title="CodePen"><i class="fa-brands fa-codepen"></i></a>
+        <a href="#" onclick="quickLoad('https://bing.com')" class="orbit-node" title="Bing"><i class="fa-brands fa-bing"></i></a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SCREEN 2: Web Viewport Screen -->
+  <section id="web-content-screen" class="hidden">
+    <div class="hud-top-bar">
+      <div class="active-browser-tag"><i class="fa-solid fa-bolt"></i> NEXUS</div>
+      <input type="text" id="mini-address-display" readonly>
+    </div>
+    <div id="frame-container"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
